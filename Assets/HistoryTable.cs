@@ -23,7 +23,7 @@ public class HistoryTable : MonoBehaviour
 
         entryTemplate.gameObject.SetActive(false);
 
-        AddHistoryEntry(12222222, "asd");
+        //AddHistoryEntry(12222222, "asd");
 
         /*
         Debug.Log(System.IO.File.Exists(Application.persistentDataPath + "/HistoryData.json"));
@@ -78,13 +78,12 @@ public class HistoryTable : MonoBehaviour
         entryTransform.gameObject.SetActive(true);
 
         int rank = transformList.Count + 1;
-      
 
-        int date = historyEntry.date;
-        entryTransform.Find("dateText").GetComponent<Text>().text = date.ToString();
+
+        entryTransform.Find("dateText").GetComponent<Text>().text = historyEntry.date.ToString();
 
         //string name = highScoreEntry.name;
-        entryTransform.Find("nameText").GetComponent<Text>().text = "Player" + rank;
+        entryTransform.Find("nameText").GetComponent<Text>().text = historyEntry.name;
 
         //Set background visible odds and evens
         entryTransform.Find("Background").gameObject.SetActive(rank % 2 == 1);
