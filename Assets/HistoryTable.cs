@@ -12,7 +12,7 @@ public class HistoryTable : MonoBehaviour
 {
     private Transform entryContainer;
     private Transform entryTemplate;
-    private List<Transform> highScoreEntryTransformList;
+    private List<Transform> historyEntryTransformList;
     [SerializeField] private History _History;
 
 
@@ -27,10 +27,10 @@ public class HistoryTable : MonoBehaviour
         /*
         Debug.Log(Application.persistentDataPath);
         Debug.Log(System.IO.File.Exists(Application.persistentDataPath + "/TableData.json"));*/
-        if (System.IO.File.Exists(Application.persistentDataPath + "/TableData.json"))
+        if (System.IO.File.Exists(Application.persistentDataPath + "/HistoryData.json"))
         {
 
-            string jsonString = System.IO.File.ReadAllText(Application.persistentDataPath + "/TableData.json");
+            string jsonString = System.IO.File.ReadAllText(Application.persistentDataPath + "/HistoryData.json");
             History history = JsonUtility.FromJson<History>(jsonString);
 
             Debug.Log("Ioana");
@@ -49,14 +49,14 @@ public class HistoryTable : MonoBehaviour
                 }
 
             }
-            highScoreEntryTransformList = new List<Transform>();
+            historyEntryTransformList = new List<Transform>();
             var index = 0;
             foreach (HistoryEntry historyEntry in history.highScoresEntryList)
             {
                 index += 1;
                 if (index <= 10)
                 {
-                    CreateHighScoresEntryTemplate(historyEntry, entryContainer, highScoreEntryTransformList);
+                    CreateHighScoresEntryTemplate(historyEntry, entryContainer, historyEntryTransformList);
                 }
             }
 
@@ -115,7 +115,7 @@ public class HistoryTable : MonoBehaviour
        
         transformList.Add(entryTransform);
     }
-    /*
+   
 
     private void AddHighScoreEntry(int score, string name)
     {
@@ -137,7 +137,7 @@ public class HistoryTable : MonoBehaviour
 
         System.IO.File.WriteAllText(Application.persistentDataPath + "/TableData.json", list);
 
-    }*/
+    }
 
     [System.Serializable]
     private class History
