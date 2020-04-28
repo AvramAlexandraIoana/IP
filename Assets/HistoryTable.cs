@@ -23,7 +23,7 @@ public class HistoryTable : MonoBehaviour
 
         entryTemplate.gameObject.SetActive(false);
 
-        AddHighScoreEntry(223459, "asd");
+        AddHistoryEntry(12222222, "asd");
 
         /*
         Debug.Log(System.IO.File.Exists(Application.persistentDataPath + "/HistoryData.json"));
@@ -38,22 +38,22 @@ public class HistoryTable : MonoBehaviour
             Debug.Log("Ioana");
 
             Debug.Log(history);
-            for (int i = 0; i < history.highScoresEntryList.Count; i++)
+            for (int i = 0; i < history.historyEntryList.Count; i++)
             {
-                for (int j = i + 1; j < history.highScoresEntryList.Count; j++)
+                for (int j = i + 1; j < history.historyEntryList.Count; j++)
                 {
-                    if (history.highScoresEntryList[j].score > history.highScoresEntryList[i].score)
+                    if (history.historyEntryList[j].score > history.historyEntryList[i].score)
                     {
-                        HistoryEntry temp = history.highScoresEntryList[i];
-                        history.highScoresEntryList[i] = history.highScoresEntryList[j];
-                        history.highScoresEntryList[j] = temp;
+                        HistoryEntry temp = history.historyEntryList[i];
+                        history.historyEntryList[i] = history.historyEntryList[j];
+                        history.historyEntryList[j] = temp;
                     }
                 }
 
             }
             historyEntryTransformList = new List<Transform>();
             var index = 0;
-            foreach (HistoryEntry historyEntry in history.highScoresEntryList)
+            foreach (HistoryEntry historyEntry in history.historyEntryList)
             {
                 index += 1;
                 if (index <= 15)
@@ -94,7 +94,7 @@ public class HistoryTable : MonoBehaviour
     }
    
 
-    private void AddHighScoreEntry(int score, string name)
+    private void AddHistoryEntry(int score, string name)
     {
         //Create HighScoreEntry
         HistoryEntry historyEntry = new HistoryEntry { score = score, name = name };
@@ -104,10 +104,10 @@ public class HistoryTable : MonoBehaviour
         History highScores = JsonUtility.FromJson<History>(jsonString);
 
         //Add new entry
-        highScores.highScoresEntryList.Add(historyEntry);
+        highScores.historyEntryList.Add(historyEntry);
 
 
-        _History = new History { highScoresEntryList = highScores.highScoresEntryList };
+        _History = new History { historyEntryList = highScores.historyEntryList };
 
         string list = JsonUtility.ToJson(_History);
         Debug.Log(list);
@@ -119,7 +119,7 @@ public class HistoryTable : MonoBehaviour
     [System.Serializable]
     private class History
     {
-        public List<HistoryEntry> highScoresEntryList;
+        public List<HistoryEntry> historyEntryList;
     }
 
     [System.Serializable]
