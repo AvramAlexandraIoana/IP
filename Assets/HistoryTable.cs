@@ -24,9 +24,11 @@ public class HistoryTable : MonoBehaviour
         entryTemplate.gameObject.SetActive(false);
 
         //AddHighScoreEntry(223459, "asd");
+
         /*
+        Debug.Log(System.IO.File.Exists(Application.persistentDataPath + "/HistoryData.json"));
         Debug.Log(Application.persistentDataPath);
-        Debug.Log(System.IO.File.Exists(Application.persistentDataPath + "/TableData.json"));*/
+        Debug.Log(System.IO.File.Exists(Application.persistentDataPath + "/HistoryData.json"));*/
         if (System.IO.File.Exists(Application.persistentDataPath + "/HistoryData.json"))
         {
 
@@ -54,9 +56,9 @@ public class HistoryTable : MonoBehaviour
             foreach (HistoryEntry historyEntry in history.highScoresEntryList)
             {
                 index += 1;
-                if (index <= 10)
+                if (index <= 15)
                 {
-                    CreateHighScoresEntryTemplate(historyEntry, entryContainer, historyEntryTransformList);
+                    CreateHistoryEntryTemplate(historyEntry, entryContainer, historyEntryTransformList);
                 }
             }
 
@@ -64,35 +66,10 @@ public class HistoryTable : MonoBehaviour
         }
 
 
-
-        /*HighScores highScores = new HighScores { highScoresEntryList = highScoresEntryList };
-        _HighScores = new HighScores { highScoresEntryList = highScoresEntryList };
-        
-        string potion = JsonUtility.ToJson(_HighScores);
-        Debug.Log(potion);
-
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/TableData.json", potion);
-        var elem = System.IO.File.ReadAllText(Application.persistentDataPath + "/TableData.json");
-        var exista = System.IO.File.Exists(Application.persistentDataPath + "/TableData.json");
-        Debug.Log(elem);
-        Debug.Log(exista);
-
-
-
-       
-        string json = JsonUtility.ToJson(highScores);
-
-        PlayerPrefs.SetString("highScoreTable", json);
-        PlayerPrefs.Save();
-        Debug.Log(PlayerPrefs.GetString("highScoreTable"));*/
-
-
-
-
     }
    
 
-    private void CreateHighScoresEntryTemplate(HistoryEntry historyEntry, Transform container, List<Transform> transformList)
+    private void CreateHistoryEntryTemplate(HistoryEntry historyEntry, Transform container, List<Transform> transformList)
     {
         float templateHeight = 30f;
         Transform entryTransform = Instantiate(entryTemplate, container);
