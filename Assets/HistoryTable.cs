@@ -42,7 +42,7 @@ public class HistoryTable : MonoBehaviour
             {
                 for (int j = i + 1; j < history.historyEntryList.Count; j++)
                 {
-                    if (history.historyEntryList[j].score > history.historyEntryList[i].score)
+                    if (history.historyEntryList[j].date > history.historyEntryList[i].date)
                     {
                         HistoryEntry temp = history.historyEntryList[i];
                         history.historyEntryList[i] = history.historyEntryList[j];
@@ -80,8 +80,8 @@ public class HistoryTable : MonoBehaviour
         int rank = transformList.Count + 1;
       
 
-        int score = historyEntry.score;
-        entryTransform.Find("dateText").GetComponent<Text>().text = score.ToString();
+        int date = historyEntry.date;
+        entryTransform.Find("dateText").GetComponent<Text>().text = date.ToString();
 
         //string name = highScoreEntry.name;
         entryTransform.Find("nameText").GetComponent<Text>().text = "Player" + rank;
@@ -94,10 +94,10 @@ public class HistoryTable : MonoBehaviour
     }
    
 
-    private void AddHistoryEntry(int score, string name)
+    private void AddHistoryEntry(int date, string name)
     {
         //Create HighScoreEntry
-        HistoryEntry historyEntry = new HistoryEntry { score = score, name = name };
+        HistoryEntry historyEntry = new HistoryEntry { date = date, name = name };
 
         //Load saved HighScores
         string jsonString = System.IO.File.ReadAllText(Application.persistentDataPath + "/HistoryData.json");
@@ -125,7 +125,7 @@ public class HistoryTable : MonoBehaviour
     [System.Serializable]
     private class HistoryEntry
     {
-        public int score;
+        public int date;
         public string name;
     }
 }
