@@ -23,7 +23,7 @@ public class HistoryTable : MonoBehaviour
 
         entryTemplate.gameObject.SetActive(false);
 
-        //AddHighScoreEntry(223459, "asd");
+        AddHighScoreEntry(223459, "asd");
 
         /*
         Debug.Log(System.IO.File.Exists(Application.persistentDataPath + "/HistoryData.json"));
@@ -100,7 +100,7 @@ public class HistoryTable : MonoBehaviour
         HistoryEntry historyEntry = new HistoryEntry { score = score, name = name };
 
         //Load saved HighScores
-        string jsonString = System.IO.File.ReadAllText(Application.persistentDataPath + "/TableData.json");
+        string jsonString = System.IO.File.ReadAllText(Application.persistentDataPath + "/HistoryData.json");
         History highScores = JsonUtility.FromJson<History>(jsonString);
 
         //Add new entry
@@ -112,7 +112,7 @@ public class HistoryTable : MonoBehaviour
         string list = JsonUtility.ToJson(_History);
         Debug.Log(list);
 
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/TableData.json", list);
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/HistoryData.json", list);
 
     }
 
