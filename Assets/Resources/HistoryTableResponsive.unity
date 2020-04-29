@@ -1143,8 +1143,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -111}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchoredPosition: {x: 198.3, y: -110}
+  m_SizeDelta: {x: -396.7, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1041666681
 MonoBehaviour:
@@ -1171,7 +1171,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
@@ -1383,6 +1383,7 @@ GameObject:
   - component: {fileID: 1257843707}
   - component: {fileID: 1257843709}
   - component: {fileID: 1257843708}
+  - component: {fileID: 1257843710}
   m_Layer: 5
   m_Name: HistoryTable
   m_TagString: Untagged
@@ -1451,6 +1452,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1257843706}
   m_CullTransparentMesh: 0
+--- !u!114 &1257843710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257843706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da87eac2e329cb841a54f889ffdb45f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _History:
+    historyEntryList: []
 --- !u!1 &1290527729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1590,7 +1605,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
@@ -1651,7 +1666,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1669325684}
   m_Layer: 5
-  m_Name: HistoryEntryContainer
+  m_Name: HistoryEntryTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

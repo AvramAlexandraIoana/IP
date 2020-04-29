@@ -25,10 +25,10 @@ public class HistoryTable : MonoBehaviour
 
         //AddHistoryEntry(12222222, "asd");
 
-        /*
+        
         Debug.Log(System.IO.File.Exists(Application.persistentDataPath + "/HistoryData.json"));
         Debug.Log(Application.persistentDataPath);
-        Debug.Log(System.IO.File.Exists(Application.persistentDataPath + "/HistoryData.json"));*/
+        Debug.Log(System.IO.File.Exists(Application.persistentDataPath + "/HistoryData.json"));
         if (System.IO.File.Exists(Application.persistentDataPath + "/HistoryData.json"))
         {
 
